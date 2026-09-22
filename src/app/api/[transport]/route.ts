@@ -72,6 +72,13 @@ const mcpHandler = createMcpHandler(
   },
   {
     serverInfo: { name: "claude-mcp-dashboard", version: "1.0.0" },
+  },
+  {
+    // Handler ini mencocokkan request berdasarkan url.pathname PERSIS.
+    // Route file kita ada di app/api/[transport]/route.ts, jadi URL
+    // sebenarnya adalah /api/mcp — basePath ini memberitahu handler
+    // supaya menunggu di /api/mcp, bukan default-nya (/mcp).
+    basePath: "/api",
   }
 );
 
